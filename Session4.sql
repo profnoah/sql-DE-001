@@ -9,9 +9,9 @@
 
 	SELECT TrackId,Name, AlbumId
 	FROM tracks
-	WHERE 	AlbumId = (SELECT AlbumId
-								 FROM albums
-								 WHERE title= 'Faceless');
+	WHERE 	AlbumId = (SELECT AlbumId 
+	 FROM albums
+		WHERE title= 'Faceless');
 
 	/* albums tablosundaki Title sutunu ‘Faceless’ olan kaydın albumid'si elde ederek 
 	tracks tablosunda bu değere eşit olan kayıtların bilgilerini JOIN kullanarak listeyiniz.
@@ -20,7 +20,7 @@
 	SELECT t.TrackId,  t.Name,  t.AlbumId
 	FROM tracks t
 	JOIN albums a
-    ON t.AlbumId = a.AlbumId
+	ON t.AlbumId = a.AlbumId
 	WHERE a.Title = 'Faceless';
 	
 	
@@ -30,9 +30,9 @@
 	Listelemede trackid, name ve albumid bilgileri bulunmalıdır. */	
 	SELECT TrackId,Name, AlbumId
 	FROM tracks
-	WHERE AlbumId IN (SELECT AlbumId
-								FROM albums
-								WHERE title IN ('Faceless','Let There Be Rock'));
+	WHERE AlbumId IN (SELECT AlbumId 
+	 FROM albums 
+		WHERE title IN ('Faceless','Let There Be Rock'));
 	
 	/* albums tablosundaki Title sutunu Faceless veya Let There Be Rock olan kayıtların 
 	albumid'lerini elde ederek tracks tablosunda bu id'lere eşit olan kayıtların bilgilerini 
@@ -116,18 +116,13 @@
 	/*------------------------------------------------------------------------------------------
 	/*  CONSTRAINTS - KISITLAMALAR 
 	/*-----------------------------------------------------------------------------------------
-
-	NOT NULL - Bir Sütunun NULL içermemesini garanti eder. 
-
-    UNIQUE - Bir sütundaki tüm değerlerin BENZERSİZ olmasını garanti eder.  
-
-    PRIMARY KEY - Bir sütünün NULL içermemesini ve sütundaki verilerin 
-                  BENZERSİZ olmasını garanti eder.(NOT NULL ve UNIQUE birleşimi gibi)
-
-    FOREIGN KEY - Başka bir tablodaki Primary Key’i referans göstermek için kullanılır. 
-                  Böylelikle, tablolar arasında ilişki kurulmuş olur. 
-
-    DEFAULT - Herhangi bir değer atanmadığında Başlangıç değerinin atanmasını sağlar.
+  NOT NULL - Bir Sütunun NULL içermemesini garanti eder. 
+		UNIQUE - Bir sütundaki tüm değerlerin BENZERSİZ olmasını garanti eder. 
+		PRIMARY KEY - Bir sütünün NULL içermemesini ve sütundaki verilerin 
+                BENZERSİZ olmasını garanti eder.(NOT NULL ve UNIQUE birleşimi gibi)
+		FOREIGN KEY - Başka bir tablodaki Primary Key’i referans göstermek için kullanılır.
+		             Böylelikle, tablolar arasında ilişki kurulmuş olur. 
+		DEFAULT - Herhangi bir değer atanmadığında Başlangıç değerinin atanmasını sağlar.
 	/*----------------------------------------------------------------------------------------*/
 	
 	CREATE TABLE workers (
